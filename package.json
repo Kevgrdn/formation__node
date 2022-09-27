@@ -1,0 +1,29 @@
+{
+  "name": "node_formation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevgrdn/formation__node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevgrdn/formation__node/issues"
+  },
+  "homepage": "https://github.com/Kevgrdn/formation__node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "pino": "^8.6.0",
+    "pino-pretty": "^9.1.0"
+  }
+}
