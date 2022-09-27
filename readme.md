@@ -2,7 +2,7 @@
 
 Pour lancer le projet :
 
- - Créer un fichier .env et une clé dans le fichier se nommant NODE_ENV = "production"
+ - Créer un fichier .env et une clé dans le fichier se nommant `NODE_ENV = "production"`
 
  - Lancer la commande dans le terminal `npm i`.
 
