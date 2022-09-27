@@ -1,7 +1,12 @@
-import  pino  from "pino";
-import  pretty  from "pino-pretty";
-import { createWriteStream } from "fs";
-import config from "./config.js"
+// import  pino  from "pino";
+// import  pretty  from "pino-pretty";
+// import { createWriteStream } from "fs";
+// import config from "./config.js"
+
+const {createWriteStream} = require("fs")
+const pino = require("pino")
+const pretty = require("pino-pretty")
+const config = require("./config.js")
 
 const prettyOpt = {
     colorize : true,
@@ -25,8 +30,8 @@ const opts = {
     dedupe: process.env.NODE_ENV === "production"
 }
 
- const logger = pino({
+const logger = pino({
     level: config.logLevel
 }, pino.multistream(streams, opts))
 
-export default logger
+module.exports = logger

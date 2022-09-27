@@ -1,45 +1,34 @@
-import express from "express"
+// import express from "express"
+// import config from "./config.js"
+
+
+const express = require("express")
+const config = require("./config.js")
+const router = require("./router")
+const registerRoutes = require("./routes")
 
 const app = express()
 
-/**
- * CRUD
- * 
- * req = Données de la requête provenant du front.
- * res = Données de la réponse renvoyée au front.
- * 
- */
+//MiddleWares
 
-app.get("/", (req, res) => {
-    //Log de la requete
-    console.log(req.ip, req.body, req.params,  req.headers);
+app.use((req, res, next) => {
+    // console.log("MW APP", req.url)
+    next()
+})
 
-    const result = {
-        ip:req.ip
+//Parser de body car express ne lit pas le corps de la requete par defaut.
+app.use(express.json())
+
+// Parser d'url
+app.use(express.urlencoded({extended: true}))
+app.use("v0/", router)
+
+registerRoutes(app)
+
+app.listen(config.port, (err) => {
+    if (!err) {
+        console.log(`Listening on http://127.0.0.1:${config.port}`);
     }
-
-    res.json(result)
 })
 
-app.get("/filters", (req, res) => {
-    //Log de la requete
-    console.log(req.query);
-
-    const result = {
-        ip:req.ip
-    }
-
-    res.json({
-        queryy: req.query
-    })
-})
-
-//Route d'erreur.
-app.get("/error", (req, res) => {
-    //Log de la requete
-    console.log(req.ip, req.method,  req.headers);
-
-    res.status(400).json({
-        error_code: "EMPTY_FIELD"
-    })
-})
+exports.app = app

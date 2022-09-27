@@ -1,5 +1,6 @@
-import logger from "./logger.js";
+// import logger from "./logger.js";
 
+const logger = require("./logger.js")
 
 logger.trace("this is a trace")
 logger.debug("thhis is debug"),
