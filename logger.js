@@ -1,8 +1,8 @@
 import  pino  from "pino";
 import  pretty  from "pino-pretty";
 import { createWriteStream } from "fs";
+import config from "./config.js"
 
-const logLevel = process.env.NODE_ENV === "production" ? "warn": "trace"
 const prettyOpt = {
     colorize : true,
     translateType: "HHH:MM:ss Z",
@@ -22,10 +22,11 @@ const opts = {
         debug: 20,
         trace: 10
     },
-    dedupe:true
+    dedupe: process.env.NODE_ENV === "production"
 }
-const logger = pino({
-    level: logLevel
+
+ const logger = pino({
+    level: config.logLevel
 }, pino.multistream(streams, opts))
 
 export default logger

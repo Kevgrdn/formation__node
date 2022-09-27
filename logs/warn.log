@@ -1,1 +1,2 @@
-{"level":40,"time":1664281715113,"pid":2128,"hostname":"DESKTOP-5H6REKG","msg":"this is warn"}
+{"level":40,"time":1664283111616,"pid":10460,"hostname":"DESKTOP-5H6REKG","msg":"this is warn"}
+{"level":60,"time":1664283111617,"pid":10460,"hostname":"DESKTOP-5H6REKG","msg":"This is fatal."}
